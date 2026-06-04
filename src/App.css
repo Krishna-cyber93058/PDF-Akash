@@ -1,0 +1,249 @@
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  color: #000;
+}
+
+.no-print {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.print-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  padding: 15px;
+  background-color: #fff;
+  position: relative;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sr-no-group {
+  display: flex;
+  align-items: baseline;
+  font-weight: bold;
+  font-size: 14px;
+  justify-content: flex-start;
+}
+
+.sr-no-input {
+  border: none;
+  border-bottom: 2px dotted #000;
+  background: transparent;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  width: 80px;
+  color: #000;
+  padding-left: 5px;
+}
+
+.logo {
+  grid-column: 2;
+  width: 80px;
+  height: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 18px;
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+.form-input {
+  flex-grow: 1;
+  border: none;
+  border-bottom: 2px dotted #000;
+  background: transparent;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: monospace;
+  padding: 0 5px 2px 5px;
+  color: #000;
+  min-width: 0; /* Ensures the input doesn't push flex boundaries */
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.row .form-group {
+  flex: 1;
+}
+
+.indent-group {
+  margin-left: 65px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 16px;
+  align-items: flex-end;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-right {
+  text-align: center;
+  line-height: 1.5;
+}
+
+input[type="date"].form-input {
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  position: relative;
+  min-width: 150px; /* Ensure there is space for the calendar icon */
+}
+
+input[type="date"].form-input::-webkit-calendar-picker-indicator {
+  background: url('data:image/svg+xml;utf8,<svg fill="%23000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>') no-repeat center;
+  background-size: contain;
+  cursor: pointer;
+  opacity: 1 !important;
+  display: block !important;
+  width: 20px;
+  height: 20px;
+}
+
+.print-only-date {
+  display: none;
+}
+
+.print-controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.forms-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.form-container {
+  flex: 1;
+  max-width: 450px;
+  border: 1px solid #000;
+  padding: 15px;
+  background-color: #fff;
+  position: relative;
+}
+
+@media print {
+  .hide-in-print {
+    visibility: hidden !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  @page {
+    size: landscape;
+    margin: 0; /* This hides the browser's default URL, title, and page numbers */
+  }
+  body {
+    padding: 10mm !important; /* Restores margin lost from @page */
+  }
+  .forms-wrapper {
+    gap: 1%; /* percentage gap */
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .form-container {
+    box-sizing: border-box !important;
+    border: 1px solid #000 !important;
+    padding: 10px !important;
+    flex: 0 0 32% !important; /* Force exact 32% width */
+    max-width: 32% !important;
+    overflow: hidden;
+  }
+  .title {
+    font-size: 1rem !important;
+    margin-bottom: 15px !important;
+  }
+  .form-group {
+    margin-bottom: 12px !important;
+  }
+  .form-group label {
+    font-size: 0.85rem !important;
+  }
+  .form-input {
+    font-size: 0.85rem !important;
+    padding: 0 2px 1px 2px !important;
+  }
+  .sr-no-group {
+    font-size: 0.85rem !important;
+  }
+  .sr-no-input {
+    font-size: 0.85rem !important;
+    width: 35px !important;
+  }
+  .logo {
+    width: 50px !important;
+  }
+  .footer {
+    font-size: 0.8rem !important;
+    margin-top: 20px !important;
+    color: #000 !important;
+  }
+  .print-only-date {
+    display: block !important;
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #000;
+  }
+  input[type="date"].form-input {
+    min-width: 0 !important; /* Removes the 150px constraint causing To Date overflow */
+  }
+  .row {
+    gap: 2px !important; /* Tightens the gap between From and To in print */
+  }
+  input[type="date"].form-input::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
+}
