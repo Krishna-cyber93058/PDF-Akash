@@ -56,7 +56,7 @@ body {
 
 .logo {
   grid-column: 2;
-  width: 80px;
+  width: 50px; /* Reduced logo size on screen */
   height: auto;
 }
 
@@ -222,7 +222,7 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     width: 35px !important;
   }
   .logo {
-    width: 50px !important;
+    width: 35px !important; /* Reduced logo size for print */
   }
   .footer {
     font-size: 0.8rem !important;

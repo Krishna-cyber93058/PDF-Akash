@@ -92,9 +92,9 @@ const FormContent = () => {
         <input type="text" className="form-input" />
       </div>
 
-      <div className="form-group">
-        <label>Reference with Mob. No:</label>
-        <input type="text" className="form-input" />
+      <div className="form-group" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
+        <label style={{ fontSize: '0.85em', marginBottom: '8px' }}>Reference with Mob. No:</label>
+        <input type="text" className="form-input" style={{ width: '100%' }} />
       </div>
 
       <div className="form-group">
@@ -106,10 +106,11 @@ const FormContent = () => {
       </div>
 
       <div className="footer">
-        <div className="footer-left">
+        <div className="footer-left" style={{ display: 'flex', alignItems: 'flex-end' }}>
           Sr. DCM/LKO
         </div>
         <div className="footer-right">
+          <div style={{ height: '70px', display: 'block', width: '100%' }}>&nbsp;</div>
           <div>Saurabh Tiwari</div>
           <div>Dy CSTE/Project-II/LKO</div>
           <div>Mob.9794833819</div>
