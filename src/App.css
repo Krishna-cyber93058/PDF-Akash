@@ -47,9 +47,9 @@ body {
   background: transparent;
   outline: none;
   font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  width: 80px;
+  width: 60px;
   color: #000;
   padding-left: 5px;
 }
@@ -62,21 +62,21 @@ body {
 
 .title {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .form-group {
   display: flex;
   align-items: baseline;
-  margin-bottom: 25px;
+  margin-bottom: 12px;
 }
 
 .form-group label {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   white-space: nowrap;
   margin-right: 5px;
 }
@@ -87,7 +87,7 @@ body {
   border-bottom: 2px dotted #000;
   background: transparent;
   outline: none;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   font-family: monospace;
   padding: 0 5px 2px 5px;
