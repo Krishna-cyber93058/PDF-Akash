@@ -1,29 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 body {
   margin: 0;
-  padding: 20px;
-  background-color: #fff;
-  font-family: Arial, sans-serif;
-  color: #000;
+  padding: 0;
+  background-color: #f4f7f6;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(217, 100%, 94%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(213, 100%, 92%, 1) 0, transparent 50%);
+  background-attachment: fixed;
+  font-family: 'Inter', sans-serif;
+  color: #0f172a;
+  min-height: 100vh;
 }
 
-.no-print {
-  display: block;
-  margin-bottom: 20px;
+.portal-header {
+  background: linear-gradient(135deg, rgba(15, 32, 39, 0.9) 0%, rgba(32, 58, 67, 0.9) 50%, rgba(44, 83, 100, 0.9) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 15px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.portal-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.portal-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.portal-logo-container {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 8px;
+  border-radius: 16px;
+  height: 55px;
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.portal-logo-container:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.portal-logo {
+  max-height: 45px;
+  max-width: 45px;
+  border-radius: 50%;
+}
+
+.portal-title h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #ffffff, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portal-title p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #cbd5e1;
+  letter-spacing: 0.5px;
 }
 
 .print-btn {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.print-btn .print-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+/* Modern Toggle Switch */
+.toggle-label:hover {
+  filter: brightness(0.95);
+}
+
+.toggle-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 32px;
+  height: 18px;
+  background: #cbd5e1;
+  border-radius: 20px;
+  position: relative;
+  margin-right: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.toggle-checkbox::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.toggle-checkbox:checked {
+  background: #10b981; /* Emerald green */
+}
+
+.toggle-checkbox:checked::after {
+  transform: translateX(14px);
 }
 
 .form-container {
   max-width: 600px;
   margin: 0 auto;
-  border: 1px solid #000;
-  padding: 15px;
-  background-color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 25px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
 .header {
@@ -43,15 +188,20 @@ body {
 
 .sr-no-input {
   border: none;
-  border-bottom: 2px dotted #000;
+  border-bottom: 2px solid #cbd5e1;
   background: transparent;
   outline: none;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   width: 60px;
-  color: #000;
+  color: #003366;
   padding-left: 5px;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.sr-no-input:focus {
+  border-bottom-color: #003366;
 }
 
 .logo {
@@ -84,16 +234,21 @@ body {
 .form-input {
   flex-grow: 1;
   border: none;
-  border-bottom: 2px dotted #000;
+  border-bottom: 2px solid #cbd5e1;
   background: transparent;
   outline: none;
   font-size: 14px;
-  font-weight: bold;
-  font-family: monospace;
-  padding: 0 5px 2px 5px;
-  color: #000;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  padding: 4px 5px;
+  color: #003366;
   min-width: 0; /* Ensures the input doesn't push flex boundaries */
   width: 100%;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-bottom-color: #003366;
 }
 
 .row {
@@ -162,15 +317,20 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   max-width: 1400px;
   margin: 0 auto;
   gap: 30px;
+  padding: 0 20px 40px;
+  box-sizing: border-box;
 }
 
 .form-container {
   flex: 1;
   max-width: 450px;
-  border: 1px solid #000;
-  padding: 15px;
-  background-color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 25px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 @media print {
@@ -184,8 +344,15 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     size: landscape;
     margin: 0; /* This hides the browser's default URL, title, and page numbers */
   }
+  html, body {
+    height: 100vh;
+    overflow: hidden !important; /* Prevents the extra blank page */
+    margin: 0;
+  }
   body {
     padding: 10mm !important; /* Restores margin lost from @page */
+    box-sizing: border-box;
+    background: transparent !important;
   }
   .forms-wrapper {
     gap: 1%; /* percentage gap */
@@ -195,10 +362,19 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   .form-container {
     box-sizing: border-box !important;
     border: 1px solid #000 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
     padding: 10px !important;
     flex: 0 0 32% !important; /* Force exact 32% width */
     max-width: 32% !important;
     overflow: hidden;
+  }
+  .form-input, .sr-no-input {
+    border-bottom: 2px dotted #000 !important;
+    color: #003366 !important;
+    font-weight: bold !important;
+    font-family: Arial, sans-serif !important;
   }
   .title {
     font-size: 1rem !important;
@@ -245,5 +421,11 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
   }
   input[type="date"].form-input::-webkit-calendar-picker-indicator {
     display: none !important;
+  }
+  select.select-input {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background: transparent !important;
   }
 }
