@@ -377,8 +377,11 @@ input[type="date"].form-input::-webkit-calendar-picker-indicator {
     font-family: Arial, sans-serif !important;
   }
   .title {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
     margin-bottom: 15px !important;
+    white-space: normal !important;
+    line-height: 1.2 !important;
+    padding: 0 5px !important;
   }
   .form-group {
     margin-bottom: 12px !important;

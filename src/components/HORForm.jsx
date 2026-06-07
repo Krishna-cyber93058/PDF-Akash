@@ -6,6 +6,53 @@ const FormContent = () => {
   const [purposeOption, setPurposeOption] = useState('Urgent work');
   const [classOption, setClassOption] = useState('');
   
+  const [journeyDate, setJourneyDate] = useState('');
+  
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return dateString;
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const [referenceOption, setReferenceOption] = useState('');
+  const [referenceName, setReferenceName] = useState('');
+  const [referenceMobile, setReferenceMobile] = useState('');
+
+  const handleReferenceChange = (e) => {
+    const val = e.target.value;
+    setReferenceOption(val);
+    
+    if (val === 'Dy CSTE/Project-II/LKO') {
+      setReferenceName(val);
+      setReferenceMobile('9794833819');
+    } else if (val === 'ASTE/P-II/LKO') {
+      setReferenceName(val);
+      setReferenceMobile('9760530823');
+    } else if (val === 'SSE/SIG/P-II/LKO') {
+      setReferenceName(val);
+      setReferenceMobile('8299570074');
+    } else if (val === 'Vikash Kumar Asst./P-II') {
+      setReferenceName(val);
+      setReferenceMobile('8299707728');
+    } else if (val === 'Iram Raza Asst./P-II') {
+      setReferenceName(val);
+      setReferenceMobile('8840344889');
+    } else if (val === 'Vijay Kumar Asst./P-II') {
+      setReferenceName(val);
+      setReferenceMobile('9335855373');
+    } else if (val === 'Other') {
+      setReferenceName('');
+      setReferenceMobile('');
+    } else {
+      setReferenceName('');
+      setReferenceMobile('');
+    }
+  };
+
   return (
     <div className={`form-container ${!shouldPrint ? 'hide-in-print' : ''}`}>
       <div className="form-checkbox no-print" style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '15px' }}>
@@ -32,7 +79,7 @@ const FormContent = () => {
         />
       </div>
 
-      <div className="title" style={{ color: '#003366', fontSize: '15px', textTransform: 'uppercase', whiteSpace: 'nowrap', textAlign: 'center', margin: '15px 0', letterSpacing: '0.5px', fontWeight: 'bold' }}>
+      <div className="title" style={{ color: '#003366', fontSize: '15px', textTransform: 'uppercase', textAlign: 'center', margin: '15px 0', letterSpacing: '0.5px', fontWeight: 'bold' }}>
         Reservation against HOR Quota
       </div>
 
@@ -52,7 +99,37 @@ const FormContent = () => {
 
       <div className="form-group">
         <label>Date of Journey:</label>
-        <input type="date" className="form-input" />
+        <div style={{ position: 'relative', flexGrow: 1, display: 'flex' }}>
+          <input 
+            type="text" 
+            className="form-input" 
+            value={formatDate(journeyDate)}
+            readOnly
+            placeholder="DD/Month/YYYY"
+            style={{ width: '100%', cursor: 'pointer', backgroundColor: 'transparent' }}
+          />
+          <input 
+            type="date" 
+            className="no-print"
+            value={journeyDate}
+            onChange={(e) => setJourneyDate(e.target.value)}
+            style={{ 
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              opacity: 0,
+              width: '100%',
+              height: '100%',
+              cursor: 'pointer',
+              zIndex: 10
+            }}
+          />
+          <div className="no-print" style={{ position: 'absolute', right: '5px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', zIndex: 1 }}>
+            <svg fill="#003366" viewBox="0 0 24 24" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
+            </svg>
+          </div>
+        </div>
       </div>
 
       <div className="form-group">
@@ -121,13 +198,49 @@ const FormContent = () => {
         )}
       </div>
 
-      <div className="form-group" style={{ alignItems: 'center' }}>
-        <label style={{ fontSize: '0.85em', whiteSpace: 'nowrap', marginRight: '10px', textAlign: 'right', lineHeight: '1.3' }}>
+      <div className="form-group" style={{ alignItems: 'flex-start' }}>
+        <label style={{ fontSize: '0.85em', whiteSpace: 'nowrap', marginRight: '10px', textAlign: 'right', lineHeight: '1.3', marginTop: '5px' }}>
           Reference with<br/>Mob. No:
         </label>
         <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-          <input type="text" className="form-input" style={{ width: '100%', marginBottom: '8px' }} />
-          <input type="text" className="form-input" style={{ width: '100%' }} />
+          <select 
+            className={`form-input select-input ${referenceOption === 'Other' ? 'no-print' : ''}`}
+            value={referenceOption}
+            onChange={handleReferenceChange}
+            style={{ width: '100%', marginBottom: '8px' }}
+          >
+            <option value=""></option>
+            <option value="Dy CSTE/Project-II/LKO">Dy CSTE/Project-II/LKO</option>
+            <option value="ASTE/P-II/LKO">ASTE/P-II/LKO</option>
+            <option value="SSE/SIG/P-II/LKO">SSE/SIG/P-II/LKO</option>
+            <option value="Vikash Kumar Asst./P-II">Vikash Kumar Asst./P-II</option>
+            <option value="Iram Raza Asst./P-II">Iram Raza Asst./P-II</option>
+            <option value="Vijay Kumar Asst./P-II">Vijay Kumar Asst./P-II</option>
+            <option value="Other">Other</option>
+          </select>
+          {referenceOption === 'Other' && (
+            <input 
+              type="text" 
+              className="form-input" 
+              value={referenceName}
+              onChange={(e) => setReferenceName(e.target.value)}
+              autoFocus 
+              placeholder="Enter Name/Designation" 
+              style={{ width: '100%', marginBottom: '8px' }}
+            />
+          )}
+          <input 
+            type="tel" 
+            className="form-input" 
+            value={referenceMobile}
+            onChange={(e) => {
+              const val = e.target.value.replace(/[^0-9]/g, '');
+              if (val.length <= 10) setReferenceMobile(val);
+            }}
+            readOnly={referenceOption !== 'Other'}
+            placeholder="Mobile Number"
+            style={{ width: '100%' }}
+          />
         </div>
       </div>
 
